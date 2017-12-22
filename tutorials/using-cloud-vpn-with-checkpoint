@@ -1,0 +1,64 @@
+---
+title: How to Set Up VPN between Checkpoint security gateway and Cloud VPN
+description: Learn how to build site-to-site IPSEC VPN between Checkpoint security gateway and Cloud VPN.
+author: ashishverm
+tags: Compute Engine, Cloud VPN, Checkpoint vSec
+date_published: 2017-12-25
+---
+
+This guide walks you through the process to configure the Checkpint security gateway
+for integration with the [Google Cloud VPN Services][cloud_vpn]. This information is
+provided as an example only. Please note that this guide is not meant to be a
+comprehensive overview of IPsec and assumes basic familiarity with the IPsec
+protocol.
+
+[cloud_vpn]: https://cloud.google.com/compute/docs/vpn/overview
+
+## Environment overview
+
+The equipment used in the creation of this guide is as follows:
+
+* Vendor: Checkpoint
+* Model: 
+* Software Release: 
+
+Although this guide is created with ?? exactly the same configuration
+also apply to other Checkpoint platforms:
+
+* ASR 1001-X
+* ASR1002-X
+* ASR1001-HX
+* ASR1002-HX
+* ASR 1006-X
+
+## Topology
+
+The topology outlined by this guide is a basic site-to-site IPsec VPN tunnel
+configuration using the referenced device:
+
+![Topology](https://storage.googleapis.com/gcp-community/tutorials/using-cloud-vpn-with-cisco-asr/GCP-Cisco-ASR-Topology.jpg)
+
+### IPsec parameters
+
+For the Cisco ASR 1000 IPsec configuration, the following details will be used:
+
+|Parameter | Value|
+--------- |  -----
+|IPsec Mode | `Tunnel mode` |
+|Auth protocol | `Pre-shared-key` |
+|Key Exchange | `IKEv2` |
+|Start | `Auto` |
+|Perfect Forward Secrecy (PFS) | `Group 16` |
+|Dead Peer Detection (DPD) | `60 5 periodic` |
+
+The IPsec configuration used in this guide is specified below:
+
+| Cipher Role | Cipher |
+| ------------| -------|
+| Encryption | `esp-aes 256 esp-sha-hmac` |
+| Integrity | `sha256` |
+| Diffie-Hellman (DH) | `group 16` |
+| Lifetime | `36,000 seconds (10 hours)` |
+
+## Configuration – GCP
+
