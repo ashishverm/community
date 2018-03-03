@@ -19,10 +19,10 @@ protocol.
 The equipment used in the creation of this guide is as follows:
 
 * Vendor: Palo Alto Networks
-* Model: PA-3020
+* Model: VM-Series
 * Software Release: 8.1.0
 
-Although this guide is created with PA-3020 exactly the same configuration
+Although this guide is created with VM-Series exactly the same configuration
 also apply to all other PAN NGFW platforms.
 
 ## Topology
@@ -53,17 +53,17 @@ will be covered:
 
 ### Getting Started
 
-The first step in configuring your Palo Alto Networks PA-3020 for use with the Google cloud
+The first step in configuring your Palo Alto Networks VM-series for use with the Google cloud
 VPN service is to ensure that the following prerequisite conditions have been met:  
 
-* Palo Alto Networks PA-3020 online and functional with no faults detected
-* Root access to the Palo Alto Networks PA-3020
+* Palo Alto Networks VM-series online and functional with no faults detected
+* Root access to the Palo Alto Networks VM-series
 * At least one configured and verified functional internal interface
 * One configured and verified functional external interface
 
 ### IPsec parameters
 
-For the PA-3020 IKE configuration, the following details will be used:
+For the VM-series IKE configuration, the following details will be used:
 
 |Parameter | Value|
 --------- |  -----
